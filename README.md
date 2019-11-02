@@ -1,68 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Questions Part 
+## Part 1 
+When setting the state within the toggleItem function, I used this code to modify the array:
+`this.setState(({ items }) => ({   items: items.map((item, i) => (index === i ? { ...item, complete: !item.complete } : item)), }));`
+#### Questions 
+1. Why would I have passed a function to the `setState` call, rather then modifying this.state?
+Because acutally `this.props` and `this.state` could be updated asynchronously, so that the value will not be reliable for calculating the next state. By passing the function as the first argument of `setState`, the result will be more accurate and reliable.
 
-## Available Scripts
+2.What could be the reason for me mapping over the entire array rather than modifying the array directly (IE. `{items[index].complete = !item[index].complete}`)? And is there any possible reasons for using the object spread syntax within the loop?
+If using the `map` function then we will not directly mutate the orignial array, but the cloned array created by `map` will be modified instead. 
+Each item is actually only a reference to the object in memory, if we change the property of the object in the callback function, we will actually change the property via the reference and it will mutate the original object. The spread operator help create a new empty object for each item in the array and assign the properties from old objects to them, respectively. Thus, we will get an object with a new reference, so we are not going to modify the old one.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Part 2 
+Currently, we use the array index as the way to know what to-do item we are toggling, as well as using them for the `key` prop when rendering the list.
+#### Questions
+1. Generally, what drawbacks—if any—does this have and how would you solve them?
+For example, if we `unshift` a to-do item or remove something in the middle of the array. The `key` of each element will no longer be the same as before anymore. The solution could be adding a unique property to each item such as an `id`, it will not change like `index` when the array is modified. 

@@ -1,0 +1,16 @@
+.bottom-menu {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid gray;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    
+.bottom-menu_item {
+    margin-left: 5px;
+    cursor: pointer;
+    border: 1.5px solid #031622;
+    background-color: white;
+}
+}
+
