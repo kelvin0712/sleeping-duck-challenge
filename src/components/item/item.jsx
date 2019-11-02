@@ -1,12 +1,12 @@
 import React from 'react';
-import './items.scss';
+import './item.scss';
 
-const Item = ({item: { title, complete }, onToggle }) => (
+const Item = ({item: { title, complete, checked }, onToggle, toggleCheckItem }) => (
     <div className={`item ${complete ? 'complete' : ''}`}>
         <div className = "itemContainer">
-            <div className = "checkbox" onClick={onToggle}>              
-             {complete && (
-                <span>&#x2714;</span>
+            <div className = "checkbox" onClick={toggleCheckItem}>              
+             {checked && (
+                <span className="stick">&#x2714;</span>
              )}
             </div>
             <h1>{title}</h1>

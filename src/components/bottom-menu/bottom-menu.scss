@@ -9,8 +9,13 @@
 .bottom-menu_item {
     margin-left: 5px;
     cursor: pointer;
-    border: 1.5px solid #031622;
+    border: 1.5px solid #e65c00;
     background-color: white;
+    transition: .3s;
+
+    &:hover {
+        opacity: 0.7;
+      }
 }
 }
 

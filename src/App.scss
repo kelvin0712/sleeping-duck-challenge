@@ -17,7 +17,7 @@ html, body {
   }
 
 header {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #e65c00;
     display: flex;
     margin-bottom: 2rem;
     padding: 2rem 0;
@@ -36,8 +36,13 @@ header {
     .nav-item {
     margin-left: 5px;
     cursor: pointer;
-    border: 1.5px solid #057fd0;
+    border: 1.5px solid #e65c00;
     background-color: white;
+    transition: .3s;
+    
+    &:hover {
+      opacity: 0.7;
+    }
     }
   }
 
@@ -52,12 +57,11 @@ header {
     clear: both;
   }
 
-
 .menu {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: #333;
+  background: linear-gradient(to right, #e65c00, #f9d423);
   overflow: hidden;
   position: fixed;
   bottom: 0;
