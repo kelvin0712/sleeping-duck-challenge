@@ -8,7 +8,7 @@ When setting the state within the toggleItem function, I used this code to modif
 
 2. What could be the reason for me mapping over the entire array rather than modifying the array directly (IE. `{items[index].complete = !item[index].complete}`)? And is there any possible reasons for using the object spread syntax within the loop?
 - If using the `map` function then we will not directly mutate the orignial array, but the cloned array created by `map` will be modified instead. 
-- Each item is actually only a reference to the object in memory, if we change the property of the object in the callback function, we will actually change the property via the reference and it will mutate the original object. The spread operator help create a new empty object for each item in the array and assign the properties from old objects to them, respectively. Thus, we will get an object with a new reference, so we are not going to modify the old one.
+- Each item is actually only a reference to the object in memory, if we change the property of the object in the callback function, we will actually change the property via the reference and it will mutate the original object. The spread operator helps create a new empty object for each to-do item in the array and assign the properties from old objects to them, respectively. Thus, we will get an object with a new reference, so we are not going to modify the old one.
 
 ## Part 2 
 Currently, we use the array index as the way to know what to-do item we are toggling, as well as using them for the `key` prop when rendering the list.
