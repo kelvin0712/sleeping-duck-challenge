@@ -14,5 +14,4 @@ When setting the state within the toggleItem function, I used this code to modif
 Currently, we use the array index as the way to know what to-do item we are toggling, as well as using them for the `key` prop when rendering the list.
 #### Questions
 1. Generally, what drawbacks—if any—does this have and how would you solve them?
-
-For example, if we `unshift` a to-do item or remove something in the middle of the array. The `key` of each element will no longer be the same as before anymore. The solution could be adding a unique property to each item such as an `id`, it will not change like `index` when the array is modified. 
+- For example, if we `unshift` a to-do item or remove something in the middle of the array. The `key` of each element will no longer be the same as before anymore. The solution could be adding a unique property to each item such as an `id`, it will not change like `index` when the array is modified. 
