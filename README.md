@@ -4,7 +4,7 @@ When setting the state within the toggleItem function, I used this code to modif
 `this.setState(({ items }) => ({   items: items.map((item, i) => (index === i ? { ...item, complete: !item.complete } : item)), }));`
 #### Questions 
 1. Why would I have passed a function to the `setState` call, rather then modifying this.state?
-Because acutally `this.props` and `this.state` could be updated asynchronously, so that the value will not be reliable for calculating the next state. By passing the function as the first argument of `setState`, the result will be more accurate and reliable.
+- Because acutally `this.props` and `this.state` could be updated asynchronously, so that the value will not be reliable for calculating the next state. By passing the function as the first argument of `setState`, the result will be more accurate and reliable.
 
 2. What could be the reason for me mapping over the entire array rather than modifying the array directly (IE. `{items[index].complete = !item[index].complete}`)? And is there any possible reasons for using the object spread syntax within the loop?
 - If using the `map` function then we will not directly mutate the orignial array, but the cloned array created by `map` will be modified instead. 
