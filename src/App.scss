@@ -1,39 +1,39 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-  }
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
 
-  * {
-    box-sizing: inherit;
-  }
+* {
+  box-sizing: inherit;
+}
 
-  .app {
-    margin: 0 auto;
-    max-width: 900px;
-  }
+.app {
+  margin: 0 auto;
+  max-width: 900px;
+}
 
 header {
-    border-bottom: 1px solid #e65c00;
-    display: flex;
-    margin-bottom: 2rem;
-    padding: 2rem 0;
-  }
+  border-bottom: 1px solid #e65c00;
+  display: flex;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
 
-  header > .logo {
-    flex: 1;
-    font-size: 2rem;
-    font-weight: bold;
-  }
+header > .logo {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: bold;
+}
 
-  header > .nav { 
-    display: flex;
-    justify-content: flex-end;
+header > .nav { 
+  display: flex;
+  justify-content: flex-end;
 
-    .nav-item {
+  .nav-item {
     margin-left: 5px;
     cursor: pointer;
     border: 1.5px solid #e65c00;
@@ -43,19 +43,21 @@ header {
     &:hover {
       opacity: 0.7;
     }
-    }
   }
+}
 
 .items {
-    border-radius: 1rem;
-    border: 1px solid gray;
-  }
+  border-radius: 1rem;
+  border: 1px solid gray;
+  display: flex;
+  flex-wrap: wrap;
 
-  .items:after {
+  &:after {
     content: "";
     display: table;
     clear: both;
   }
+}
 
 .menu {
   display: flex;
