@@ -1,3 +1,6 @@
+# Install dependencies 
+After cloning down or download the repo, run `npm install` to install all the dependencies. After that, run `npm start` to start the application.
+
 # Questions Part 
 ## Part 1 
 When setting the state within the toggleItem function, I used this code to modify the array:
