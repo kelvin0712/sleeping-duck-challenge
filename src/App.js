@@ -32,12 +32,13 @@ class App extends React.PureComponent {
   // Mark as all checked item as complete
   markAsComplete = () => {
     const coppyArray = [...this.state.items];
+    // find the item which is checked but not completed and change it to completed and get rid of the checked
     coppyArray.map(item => {
       if (item.checked && item.complete === false) {
         item.complete = true;
         item.checked = false;
       } else {
-        return item.complete & (item.checked = false);
+        return item.complete & (item.checked = false); // if it has already completed, then return the same value and get reid of the checked
       }
       return item.complete;
     });
@@ -51,12 +52,13 @@ class App extends React.PureComponent {
   // Mark as all checked item as incomplete
   markAsInComplete = () => {
     const coppyArray = [...this.state.items];
+    // find the item which is checked and completed and change it to not completed and get rid of the checked
     coppyArray.map(item => {
       if (item.checked && item.complete === true) {
         item.complete = false;
         item.checked = false;
       } else {
-        return item.complete & (item.checked = false);
+        return item.complete & (item.checked = false); // if it has not completed, then return the same value and get reid of the checked
       }
       return item.complete;
     });
